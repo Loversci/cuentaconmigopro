@@ -53,65 +53,59 @@
       padding: 0 32px;
     }
     /* header / nav */
-    header {
-      background-color: var(--blanco);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-    .logo-block {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .logo-img {
-      height: 60px;
-      width: auto;
-      display: block;
-    }
-    .logo-text {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--azul-oscuro);
-    }
-    .logo-text span {
-      color: var(--azul-brillante);
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--texto-oscuro);
-      transition: color 0.2s;
-      font-size: 0.95rem;
-    }
-    .nav-links a:hover {
-      color: var(--azul-brillante);
-    }
-    .btn-outline {
-      border: 1.5px solid var(--azul-oscuro);
-      background: transparent;
-      padding: 0.5rem 1.3rem;
-      border-radius: 40px;
-      font-weight: 600;
-      color: var(--azul-oscuro);
-      transition: all 0.25s;
-    }
-    .btn-outline:hover {
-      background: var(--azul-oscuro);
-      color: white;
-    }
+    /* header / nav - MEJORADO PARA CONTRASTE */
+header {
+  background-color: #f0f5fd;  /* Azul muy claro que contrasta con logo blanco */
+  border-bottom: 1px solid rgba(11,42,79,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+}
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-img {
+  height: 70px;  /* Un poco más grande para mejor visibilidad */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); /* Sutil sombra para destacar */
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;  /* Un poco más grueso */
+  color: var(--azul-oscuro);  /* Texto en azul oscuro para contraste */
+  transition: color 0.2s;
+  font-size: 0.95rem;
+}
+.nav-links a:hover {
+  color: var(--azul-brillante);
+}
+.btn-outline {
+  border: 1.5px solid var(--azul-oscuro);
+  background: transparent;
+  padding: 0.5rem 1.3rem;
+  border-radius: 40px;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  transition: all 0.25s;
+}
+.btn-outline:hover {
+  background: var(--azul-oscuro);
+  color: white;
+}
     /* botones generales */
     .btn-primary {
       background-color: var(--azul-oscuro);
@@ -382,22 +376,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="container navbar">
-      <div class="logo-block">
-        <!-- LOGO ACTUALIZADO: imagen desde /img/logo.png -->
-        <img src="./img/logo.png" alt="CuentaConmigo Pro" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <div class="logo-text" style="display: none;"><span>Pro</span></div>
-      </div>
-      <div class="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-        <a href="#" class="btn-outline"><i class="fas fa-user-shield"></i> Área cliente</a>
-      </div>
+ <header style="background-color: #f0f5fd; border-bottom: 1px solid rgba(11,42,79,0.1);">
+  <div class="container navbar">
+    <div class="logo-block">
+      <img src="img/logo.png" alt="CuentaConmigo Pro" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <div class="logo-text" style="display: none;"><span>Pro</span></div>
     </div>
-  </header>
-
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#" class="btn-outline"><i class="fas fa-user-shield"></i> Área cliente</a>
+    </div>
+  </div>
+</header>
   <main>
     <!-- HERO SECTION -->
     <section class="hero">
@@ -566,4 +558,5 @@
   </script>
 </body>
 </html>
+
 
