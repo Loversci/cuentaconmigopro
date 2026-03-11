@@ -71,25 +71,10 @@
       align-items: center;
       gap: 8px;
     }
-    .logo-placeholder {
-      /* interpretación del logo: "CUENTA CONMIGO" en dos líneas con estilo */
-      background: linear-gradient(145deg, var(--azul-oscuro) 0%, #103a62 100%);
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-      line-height: 1.2;
-      padding: 10px 16px;
-      border-radius: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 8px rgba(0,40,80,0.1);
-    }
-    .logo-placeholder small {
+    .logo-img {
+      height: 60px;
+      width: auto;
       display: block;
-      font-size: 0.75rem;
-      font-weight: 400;
-      opacity: 0.9;
-      letter-spacing: 1.5px;
     }
     .logo-text {
       font-size: 1.5rem;
@@ -400,12 +385,9 @@
   <header>
     <div class="container navbar">
       <div class="logo-block">
-        <!-- Representación del logo (Cuenta Conmigo + etiqueta) -->
-        <div class="logo-placeholder">
-          CUENTA<br>CONMIGO
-          <small>Asesoría Contable y Legal | ERP</small>
-        </div>
-        <div class="logo-text"> <span>Pro</span> </div>
+        <!-- LOGO ACTUALIZADO: imagen desde /img/logo.png -->
+        <img src="/img/logo.png" alt="CuentaConmigo Pro" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="logo-text" style="display: none;"><span>Pro</span></div>
       </div>
       <div class="nav-links">
         <a href="#servicios">Servicios</a>
