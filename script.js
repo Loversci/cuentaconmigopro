@@ -1,11 +1,24 @@
 /**
- * CuentaConmigo Pro - Script principal
+ * CuentaConmigo Pro - Script principal con EmailJS
  * Autor: Diseño profesional
- * Versión: 2.0
+ * Versión: 3.0 - Con captura de leads
  */
 
 (function() {
     'use strict';
+
+    // ===== CONFIGURACIÓN DE EMAILJS =====
+    // IMPORTANTE: Debes configurar tu cuenta en EmailJS
+    // 1. Crea una cuenta gratis en https://www.emailjs.com/
+    // 2. Conecta un servicio de correo (Gmail, Outlook, etc.)
+    // 3. Crea una plantilla con las variables: nombre, email, empresa, telefono, mensaje
+    // 4. Reemplaza estas variables con tus IDs reales
+    
+    const EMAILJS_CONFIG = {
+        PUBLIC_KEY: '1Ns-UpKGL6O8NHR8d',      // Tu Public Key de EmailJS
+        SERVICE_ID: 'service_w7cgg7h',      // ID del servicio que creaste
+        TEMPLATE_ID: 'template_ak134ao-'     // ID de la plantilla
+    };
 
     // ===== MENÚ HAMBURGUESA MÓVIL =====
     const hamburger = document.getElementById('hamburgerBtn');
@@ -16,7 +29,6 @@
             this.classList.toggle('active');
             mobileMenu.classList.toggle('active');
             
-            // Animación del icono hamburguesa
             const spans = this.querySelectorAll('span');
             if (this.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
@@ -29,7 +41,6 @@
             }
         });
 
-        // Cerrar menú al hacer clic en un enlace
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -56,21 +67,36 @@
         });
     });
 
-    // ===== FORMULARIO DE CONTACTO CON VALIDACIÓN =====
+    // ===== INICIALIZAR EMAILJS =====
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+        console.log('EmailJS inicializado correctamente');
+    } else {
+        console.warn('EmailJS no está cargado. Verifica que el script esté incluido.');
+    }
+
+    // ===== FORMULARIO DE CONTACTO CON EMAILJS =====
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         const nombreInput = document.getElementById('nombre');
         const emailInput = document.getElementById('email');
+        const empresaInput = document.getElementById('empresa');
+        const telefonoInput = document.getElementById('telefono');
+        const mensajeInput = document.getElementById('mensaje');
         const formStatus = document.getElementById('formStatus');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-        // Función de validación
+        // Función de validación mejorada
         function validateForm() {
             let isValid = true;
             
             // Validar nombre
             if (!nombreInput.value.trim()) {
                 showError(nombreInput, 'El nombre es obligatorio');
+                isValid = false;
+            } else if (nombreInput.value.trim().length < 2) {
+                showError(nombreInput, 'El nombre debe tener al menos 2 caracteres');
                 isValid = false;
             } else {
                 clearError(nombreInput);
@@ -82,10 +108,21 @@
                 showError(emailInput, 'El email es obligatorio');
                 isValid = false;
             } else if (!emailRegex.test(emailInput.value.trim())) {
-                showError(emailInput, 'Email inválido');
+                showError(emailInput, 'Email inválido (ej: nombre@empresa.com)');
                 isValid = false;
             } else {
                 clearError(emailInput);
+            }
+
+            // Validar teléfono (opcional pero con formato)
+            if (telefonoInput.value.trim()) {
+                const phoneRegex = /^[0-9+\-\s()]{8,20}$/;
+                if (!phoneRegex.test(telefonoInput.value.trim())) {
+                    showError(telefonoInput, 'Teléfono inválido');
+                    isValid = false;
+                } else {
+                    clearError(telefonoInput);
+                }
             }
             
             return isValid;
@@ -110,46 +147,115 @@
         }
 
         // Limpiar errores al escribir
-        [nombreInput, emailInput].forEach(input => {
-            input.addEventListener('input', () => clearError(input));
+        [nombreInput, emailInput, telefonoInput].forEach(input => {
+            if (input) {
+                input.addEventListener('input', () => clearError(input));
+            }
         });
 
-        // Envío del formulario
-        contactForm.addEventListener('submit', function(e) {
+        // Envío del formulario con EmailJS
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            // Validar formulario
             if (!validateForm()) {
-                formStatus.textContent = 'Por favor corrige los errores';
-                formStatus.className = 'form-status error';
+                if (formStatus) {
+                    formStatus.textContent = 'Por favor corrige los errores';
+                    formStatus.className = 'form-status error';
+                }
                 return;
             }
 
-            // Simular envío
-            formStatus.textContent = 'Enviando...';
-            formStatus.className = 'form-status';
-            
-            // Simulación de petición (reemplazar con fetch real si hay backend)
-            setTimeout(() => {
-                formStatus.textContent = '✅ ¡Gracias! Te contactaremos en menos de 24h.';
-                formStatus.className = 'form-status success';
+            // Deshabilitar botón durante el envío
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            }
+
+            // Mostrar estado de envío
+            if (formStatus) {
+                formStatus.textContent = 'Enviando mensaje...';
+                formStatus.className = 'form-status';
+            }
+
+            try {
+                // Preparar los datos para EmailJS
+                const templateParams = {
+                    from_name: nombreInput.value.trim(),
+                    from_email: emailInput.value.trim(),
+                    empresa: empresaInput ? empresaInput.value.trim() : 'No especificada',
+                    telefono: telefonoInput ? telefonoInput.value.trim() : 'No especificado',
+                    message: mensajeInput ? mensajeInput.value.trim() : 'Sin mensaje',
+                    to_name: 'Equipo CuentaConmigo Pro',
+                    reply_to: emailInput.value.trim()
+                };
+
+                // Verificar que EmailJS está disponible
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('EmailJS no está cargado');
+                }
+
+                // Enviar usando EmailJS
+                const response = await emailjs.send(
+                    EMAILJS_CONFIG.SERVICE_ID,
+                    EMAILJS_CONFIG.TEMPLATE_ID,
+                    templateParams
+                );
+
+                console.log('Email enviado exitosamente:', response);
+
+                // Mostrar mensaje de éxito
+                if (formStatus) {
+                    formStatus.textContent = '✅ ¡Mensaje enviado! Te contactaremos en menos de 24h.';
+                    formStatus.className = 'form-status success';
+                }
+
+                // Resetear formulario
                 contactForm.reset();
+
+            } catch (error) {
+                console.error('Error al enviar email:', error);
                 
-                // Limpiar mensaje después de 5 segundos
-                setTimeout(() => {
-                    formStatus.textContent = '';
-                }, 5000);
-            }, 1500);
+                // Mensaje de error amigable
+                let errorMessage = 'Error al enviar. ';
+                if (error.status === 0 || error.message?.includes('network')) {
+                    errorMessage += 'Verifica tu conexión a internet.';
+                } else if (error.status === 401 || error.status === 403) {
+                    errorMessage += 'Error de autenticación con EmailJS.';
+                } else {
+                    errorMessage += 'Por favor intenta nuevamente.';
+                }
+
+                if (formStatus) {
+                    formStatus.textContent = `❌ ${errorMessage}`;
+                    formStatus.className = 'form-status error';
+                }
+
+            } finally {
+                // Re-habilitar botón
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar solicitud';
+                }
+
+                // Limpiar mensaje de éxito después de 7 segundos
+                if (formStatus && formStatus.classList.contains('success')) {
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                    }, 7000);
+                }
+            }
         });
     }
 
-    // ===== ANIMACIONES AL HACER SCROLL (INTERSECTION OBSERVER) =====
+    // ===== ANIMACIONES AL HACER SCROLL =====
     const animatedElements = document.querySelectorAll('.service-card, .step-item, .testimonial-card, .stat-card');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-up');
-                observer.unobserve(entry.target); // Solo una vez
+                observer.unobserve(entry.target);
             }
         });
     }, {
@@ -163,15 +269,21 @@
     const logoImg = document.getElementById('logoImg');
     if (logoImg) {
         logoImg.onerror = function() {
-            // Si el logo no carga, mostrar texto como fallback
             this.style.display = 'none';
             const fallback = document.createElement('span');
             fallback.className = 'logo-fallback';
             fallback.textContent = 'CuentaConmigo Pro';
+            fallback.style.cssText = 'font-weight:700; font-size:1.5rem; color:var(--azul-oscuro);';
             this.parentNode.appendChild(fallback);
         };
     }
 
-    // ===== DETECCIÓN DE SEO/OPENGRAPH (placeholder) =====
-    console.log('Sitio CuentaConmigo Pro cargado correctamente');
+    // ===== DETECCIÓN DE CONFIGURACIÓN =====
+    if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+        console.warn('⚠️ EmailJS no configurado. Reemplaza las variables en script.js con tus credenciales.');
+        if (formStatus) {
+            formStatus.textContent = 'Nota: Configura EmailJS para recibir mensajes.';
+            formStatus.className = 'form-status';
+        }
+    }
 })();
