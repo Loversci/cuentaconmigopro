@@ -17,7 +17,7 @@
     const EMAILJS_CONFIG = {
         PUBLIC_KEY: '1Ns-UpKGL6O8NHR8d',      // Tu Public Key de EmailJS
         SERVICE_ID: 'service_w7cgg7h',      // ID del servicio que creaste
-        TEMPLATE_ID: 'template_ak134ao-'     // ID de la plantilla
+        TEMPLATE_ID: 'template_ak134ao'     // ID de la plantilla
     };
 
     // ===== MENÚ HAMBURGUESA MÓVIL =====
@@ -287,3 +287,4 @@
         }
     }
 })();
+
