@@ -3,560 +3,408 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CuentaConmigo Pro · asesoría contable, legal y digital</title>
-  <meta name="description" content="Firma contable + legal + plataforma digital para PYMES. Ayudamos a emprendedores y empresas con soluciones modernas y cercanas.">
-  <meta name="keywords" content="contabilidad, asesoría fiscal, jurídico empresas, constitución empresas, consultoría pymes, SaaS gestión">
+  <title>CuentaConmigo Pro · Contabilidad & Legal para PYMES</title>
+  
+  <!-- Meta tags SEO -->
+  <meta name="description" content="Firma contable y legal en Nicaragua. Ayudamos a emprendedores y PYMES con asesoría profesional y soluciones digitales modernas.">
+  <meta name="keywords" content="contabilidad nicaragua, asesoría legal managua, firma contable, constitución empresas, consultoría pymes">
   <meta name="author" content="CuentaConmigo Pro">
-  <!-- Tipografía moderna Inter + Poppins (alternativa) -->
+  <meta name="geo.region" content="NI-MN">
+  <meta name="geo.placename" content="Managua">
+  
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="CuentaConmigo Pro · Contabilidad & Legal para PYMES">
+  <meta property="og:description" content="Firma contable + legal + tecnología para emprendedores en Nicaragua. ¡Agenda tu asesoría!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cuentaconmigopro.com">
+  <meta property="og:image" content="https://cuentaconmigopro.com/img/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  
+  <!-- Tipografía Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome para iconos profesionales (versión gratuita) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 (iconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* styles.css integrado para entrega completa */
-    :root {
-      --azul-oscuro: #0b2a4f;      /* principal */
-      --blanco: #ffffff;
-      --gris-claro: #f5f7fa;
-      --gris-medio: #eef2f6;
-      --azul-brillante: #2a7de1;   /* acento */
-      --texto-oscuro: #1e2b3c;
-      --gris-texto: #4a5a6e;
-      --sombra-suave: 0 20px 30px -10px rgba(0,20,50,0.1);
-      --border-radius: 16px;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', 'Poppins', sans-serif;
-      background-color: var(--blanco);
-      color: var(--texto-oscuro);
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-    h1, h2, h3, h4 {
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    h2 {
-      font-size: 2.3rem;
-      margin-bottom: 1.5rem;
-      color: var(--azul-oscuro);
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    /* header / nav */
-    /* header / nav - MEJORADO PARA CONTRASTE */
-header {
-  background-color: #f0f5fd;  /* Azul muy claro que contrasta con logo blanco */
-  border-bottom: 1px solid rgba(11,42,79,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 0;
-}
-.logo-block {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.logo-img {
-  height: 70px;  /* Un poco más grande para mejor visibilidad */
-  width: auto;
-  display: block;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); /* Sutil sombra para destacar */
-}
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-.nav-links a {
-  text-decoration: none;
-  font-weight: 600;  /* Un poco más grueso */
-  color: var(--azul-oscuro);  /* Texto en azul oscuro para contraste */
-  transition: color 0.2s;
-  font-size: 0.95rem;
-}
-.nav-links a:hover {
-  color: var(--azul-brillante);
-}
-.btn-outline {
-  border: 1.5px solid var(--azul-oscuro);
-  background: transparent;
-  padding: 0.5rem 1.3rem;
-  border-radius: 40px;
-  font-weight: 600;
-  color: var(--azul-oscuro);
-  transition: all 0.25s;
-}
-.btn-outline:hover {
-  background: var(--azul-oscuro);
-  color: white;
-}
-    /* botones generales */
-    .btn-primary {
-      background-color: var(--azul-oscuro);
-      color: white;
-      border: none;
-      padding: 0.9rem 2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      box-shadow: 0 8px 16px -6px rgba(11,42,79,0.2);
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-primary i {
-      margin-right: 6px;
-    }
-    .btn-primary:hover {
-      background-color: #1f4b7a;
-      transform: scale(1.02);
-    }
-    .btn-secondary {
-      background-color: transparent;
-      border: 1.5px solid var(--azul-oscuro);
-      color: var(--azul-oscuro);
-      padding: 0.85rem 2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      transition: 0.2s;
-      text-decoration: none;
-      display: inline-block;
-      margin-left: 12px;
-    }
-    .btn-secondary:hover {
-      background-color: rgba(11,42,79,0.04);
-    }
-    /* hero */
-    .hero {
-      padding: 5rem 0 4rem;
-      background: linear-gradient(135deg, #fafcff 0%, #f0f5fd 100%);
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .hero h1 {
-      font-size: 3.2rem;
-      line-height: 1.2;
-      color: var(--azul-oscuro);
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 i {
-      color: var(--azul-brillante);
-      font-style: normal;
-      border-bottom: 3px solid var(--azul-brillante);
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--gris-texto);
-      max-width: 550px;
-      margin-bottom: 2.5rem;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .hero-visual {
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none"><path d="M200,50 L400,150 L400,300 L200,350 L50,280 L50,120 L200,50Z" fill="%232a7de1" opacity="0.06"/><circle cx="380" cy="140" r="40" fill="%230b2a4f" opacity="0.05"/><circle cx="120" cy="270" r="70" fill="%232a7de1" opacity="0.04"/></svg>') no-repeat center;
-      background-size: contain;
-      height: 100%;
-      min-height: 280px;
-    }
-    /* sección servicios */
-    .section {
-      padding: 5rem 0;
-    }
-    .bg-light {
-      background-color: var(--gris-claro);
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1.5rem;
-    }
-    .service-card {
-      background: var(--blanco);
-      padding: 2rem 1.5rem;
-      border-radius: var(--border-radius);
-      box-shadow: var(--sombra-suave);
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid rgba(0,0,0,0.02);
-      text-align: center;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 40px -18px var(--azul-oscuro);
-    }
-    .service-card i {
-      font-size: 2.4rem;
-      color: var(--azul-brillante);
-      margin-bottom: 1.2rem;
-    }
-    .service-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    .service-card p {
-      font-size: 0.9rem;
-      color: var(--gris-texto);
-    }
-    /* beneficios */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-    .benefit-item {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-    }
-    .benefit-icon {
-      background: var(--azul-brillante);
-      color: white;
-      min-width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-    .steps {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .step {
-      flex: 1 1 180px;
-      background: white;
-      padding: 2rem 1rem;
-      border-radius: 30px;
-      text-align: center;
-      box-shadow: 0 8px 20px -10px #cdd9e9;
-    }
-    .step .num {
-      background: var(--azul-oscuro);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-weight: 700;
-    }
-    /* clientes ideales */
-    .client-badge {
-      display: inline-block;
-      background: white;
-      padding: 0.8rem 2rem;
-      border-radius: 60px;
-      font-weight: 500;
-      margin: 0.5rem 1rem 0.5rem 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-      border: 1px solid var(--gris-medio);
-    }
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
-    }
-    .testimonial-card {
-      background: white;
-      padding: 2rem 1.5rem;
-      border-radius: 30px;
-      box-shadow: var(--sombra-suave);
-    }
-    .testimonial-card i {
-      color: var(--azul-brillante);
-      font-size: 1.8rem;
-      opacity: 0.5;
-      margin-bottom: 1rem;
-    }
-    /* formulario CTA */
-    .cta-form {
-      background: var(--azul-oscuro);
-      color: white;
-      border-radius: 40px;
-      padding: 3.5rem;
-    }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 1rem 1.2rem;
-      border-radius: 60px;
-      border: none;
-      background: rgba(255,255,255,0.1);
-      color: white;
-      font-size: 1rem;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.7);
-    }
-    .form-group textarea {
-      border-radius: 30px;
-      resize: vertical;
-    }
-    .btn-light {
-      background: white;
-      color: var(--azul-oscuro);
-      padding: 1rem 2.5rem;
-      border-radius: 60px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-    }
-    /* footer */
-    footer {
-      background: var(--azul-oscuro);
-      color: white;
-      padding: 2.5rem 0;
-    }
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .social i {
-      font-size: 1.5rem;
-      margin-right: 1.2rem;
-      color: rgba(255,255,255,0.8);
-    }
-    /* responsive */
-    @media (max-width: 800px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; } /* mobile simplificado, pero se puede mejorar */
-      h2 { font-size: 2rem; }
-      .form-grid { grid-template-columns: 1fr; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .testimonials { grid-template-columns: 1fr; }
-    }
-    /* pequeña animación */
-    .fade-up {
-      animation: fadeUp 0.7s ease-out;
-    }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .service-card, .step, .testimonial-card {
-      transition: all 0.3s;
-    }
-  </style>
+  
+  <!-- Stylesheet principal -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- <header style="background-color: #f0f5fd; border-bottom: 1px solid rgba(11,42,79,0.1);">
-  <div class="container navbar">
-    <div class="logo-block">
-      <img src="img/logo.png" alt="CuentaConmigo Pro" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-      <div class="logo-text" style="display: none;"><span>Pro</span></div>
+  <!-- HEADER CON NAVEGACIÓN -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-wrapper">
+        <img src="/img/logo.png" alt="CuentaConmigo Pro" class="logo-img" id="logoImg">
+      </div>
+      
+      <!-- Menú de escritorio -->
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      
+      <a href="#contacto" class="btn-primary desktop-cta">Agendar consulta</a>
+      
+      <!-- Botón menú hamburguesa (móvil) -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <div class="nav-links">
-      <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#" class="btn-outline"><i class="fas fa-user-shield"></i> Área cliente</a>
+    
+    <!-- Menú móvil (oculto por defecto) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <nav>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#contacto" class="btn-primary mobile-cta">Agendar consulta</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</header>
+  </header>
+
   <main>
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION MEJORADA (conversión) -->
     <section class="hero">
       <div class="container hero-grid">
-        <div class="fade-up">
-          <h1>Contabilidad y asesoría legal <i>para empresas que quieren crecer.</i></h1>
-          <p>Ayudamos a emprendedores y empresas a cumplir sus obligaciones fiscales, contables y jurídicas con soluciones modernas.</p>
-          <div class="hero-buttons">
-            <a href="#contacto" class="btn-primary"><i class="fas fa-calendar-check"></i> Solicitar asesoría</a>
-            <a href="#contacto" class="btn-secondary">Agendar consulta</a>
+        <div class="hero-content">
+          <h1>Contabilidad y asesoría legal <span class="accent-text">para empresas que quieren crecer</span></h1>
+          <p class="hero-subtitle">Ayudamos a emprendedores y PYMES a cumplir sus obligaciones fiscales, contables y jurídicas con soluciones modernas y cercanas.</p>
+          
+          <div class="hero-benefits">
+            <div class="benefit-tag"><i class="fas fa-check-circle"></i> Expertos en Nicaragua</div>
+            <div class="benefit-tag"><i class="fas fa-check-circle"></i> Respuesta en 24h</div>
+            <div class="benefit-tag"><i class="fas fa-check-circle"></i> Plataforma digital</div>
+          </div>
+          
+          <div class="hero-ctas">
+            <a href="#contacto" class="btn-primary btn-large"><i class="fas fa-calendar-check"></i> Solicitar asesoría</a>
+            <a href="#servicios" class="btn-outline btn-large">Conocer servicios</a>
           </div>
         </div>
-        <div class="hero-visual"></div>
+        
+        <div class="hero-visual">
+          <!-- Elemento gráfico abstracto (CSS) -->
+          <div class="graphic-element"></div>
+        </div>
       </div>
     </section>
 
-    <!-- SERVICIOS (tarjetas) -->
-    <section id="servicios" class="container section">
-      <h2>Servicios profesionales integrados</h2>
-      <div class="services-grid">
-        <div class="service-card"><i class="fas fa-chart-line"></i><h3>Contabilidad empresarial</h3><p>Estados financieros, libros oficiales y reporting.</p></div>
-        <div class="service-card"><i class="fas fa-file-invoice-dollar"></i><h3>Asesoría fiscal</h3><p>Impuestos, planeación tributaria y declaraciones.</p></div>
-        <div class="service-card"><i class="fas fa-gavel"></i><h3>Servicios jurídicos</h3><p>Derecho corporativo, contratos y cumplimiento.</p></div>
-        <div class="service-card"><i class="fas fa-building"></i><h3>Constitución de empresas</h3><p>Constitución rápida y asesoría societaria.</p></div>
-        <div class="service-card"><i class="fas fa-lightbulb"></i><h3>Consultoría PYMES</h3><p>Estrategia, crecimiento y eficiencia operativa.</p></div>
-        <div class="service-card"><i class="fas fa-cloud-upload-alt"></i><h3>Plataforma digital</h3><p>SaaS de gestión empresarial (próximamente).</p></div>
-      </div>
-    </section>
-
-    <!-- POR QUÉ ELEGIRNOS + CÓMO TRABAJAMOS (junto) -->
-    <section class="section bg-light">
+    <!-- LOGOS DE CONFIANZA (confianza profesional) -->
+    <section class="trust-brands">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;" class="benefits-grid">
-          <div>
-            <h2>Por qué elegirnos</h2>
-            <div class="benefit-item"><span class="benefit-icon"><i class="fas fa-check"></i></span><div><strong>Experiencia profesional</strong><p>Equipo con más de 15 años en asesoría contable y legal.</p></div></div>
-            <div class="benefit-item"><span class="benefit-icon"><i class="fas fa-user-tie"></i></span><div><strong>Asesoría personalizada</strong><p>Te acompañamos como un socio estratégico.</p></div></div>
-            <div class="benefit-item"><span class="benefit-icon"><i class="fas fa-shield-alt"></i></span><div><strong>Cumplimiento fiscal y legal</strong><p>Máxima rigurosidad para tu tranquilidad.</p></div></div>
-            <div class="benefit-item"><span class="benefit-icon"><i class="fas fa-mobile-alt"></i></span><div><strong>Soluciones digitales modernas</strong><p>Plataforma en la nube para control de tu negocio.</p></div></div>
+        <p class="trust-title">Confían en nosotros</p>
+        <div class="brands-grid">
+          <span class="brand-placeholder">Startup Nicaragua</span>
+          <span class="brand-placeholder">Cámara de Comercio</span>
+          <span class="brand-placeholder">PYMEs Managua</span>
+          <span class="brand-placeholder">Emprendedores 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS PROFESIONALES (mejorados) -->
+    <section id="servicios" class="services-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Servicios profesionales integrados</h2>
+          <p class="section-subtitle">Combinamos lo mejor de la asesoría tradicional con la eficiencia tecnológica</p>
+        </div>
+        
+        <div class="services-grid">
+          <!-- Servicio 1 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Contabilidad empresarial</h3>
+            <p class="service-desc">Estados financieros, libros oficiales y reporting mensual. Cumplimiento fiscal garantizado.</p>
+            <div class="service-benefit">✔️ Toma decisiones con datos reales</div>
           </div>
-          <div>
-            <h2>Cómo trabajamos</h2>
-            <div class="steps">
-              <div class="step"><span class="num">1</span><h4>Diagnóstico</h4><p>Analizamos tu situación actual.</p></div>
-              <div class="step"><span class="num">2</span><h4>Plan contable-legal</h4><p>Diseñamos la estrategia.</p></div>
-              <div class="step"><span class="num">3</span><h4>Implementación</h4><p>Ejecutamos soluciones ágiles.</p></div>
-              <div class="step"><span class="num">4</span><h4>Seguimiento</h4><p>Acompañamiento continuo.</p></div>
+          
+          <!-- Servicio 2 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+            <h3>Asesoría fiscal y tributaria</h3>
+            <p class="service-desc">Declaraciones de impuestos, planeación fiscal y representación ante la DGI.</p>
+            <div class="service-benefit">✔️ Optimiza tu carga tributaria legalmente</div>
+          </div>
+          
+          <!-- Servicio 3 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-gavel"></i></div>
+            <h3>Servicios jurídicos empresariales</h3>
+            <p class="service-desc">Contratos, revisión legal, cumplimiento normativo y defensa corporativa.</p>
+            <div class="service-benefit">✔️ Opera con tranquilidad legal</div>
+          </div>
+          
+          <!-- Servicio 4 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-building"></i></div>
+            <h3>Constitución de empresas</h3>
+            <p class="service-desc">Constitución rápida, asesoría societaria y obtención de registros.</p>
+            <div class="service-benefit">✔️ Formaliza tu negocio en días</div>
+          </div>
+          
+          <!-- Servicio 5 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+            <h3>Consultoría para PYMES</h3>
+            <p class="service-desc">Estrategia de crecimiento, optimización de procesos y finanzas.</p>
+            <div class="service-benefit">✔️ Escala tu negocio con orden</div>
+          </div>
+          
+          <!-- Servicio 6 -->
+          <div class="service-card fade-up highlight-card">
+            <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h3>Plataforma digital (SaaS)</h3>
+            <p class="service-desc">Próximamente: gestión empresarial en la nube para control total.</p>
+            <div class="service-benefit">🔜 Sé el primero en probarla</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALOR DIFERENCIAL + CONFIANZA PROFESIONAL -->
+    <section class="value-section">
+      <div class="container">
+        <div class="value-grid">
+          <div class="value-content">
+            <h2>Más que una firma contable, <span class="accent-text">tu socio estratégico</span></h2>
+            
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-briefcase"></i></div>
+              <div>
+                <h3>+15 años de experiencia</h3>
+                <p>Equipo multidisciplinario con trayectoria en firmas internacionales y local.</p>
+              </div>
+            </div>
+            
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-mobile-alt"></i></div>
+              <div>
+                <h3>Enfoque tecnológico</h3>
+                <p>Dashboard en línea, reportes en tiempo real y comunicación directa vía app.</p>
+              </div>
+            </div>
+            
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <h3>Cumplimiento garantizado</h3>
+                <p>Actualización normativa constante para evitar multas y sanciones.</p>
+              </div>
+            </div>
+            
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h3>Atención personalizada</h3>
+                <p>Te asignamos un asesor dedicado, no un call center.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="value-stats">
+            <div class="stat-card">
+              <div class="stat-number">+250</div>
+              <p>Empresas asesoradas</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100%</div>
+              <p>Confidencialidad</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">24h</div>
+              <p>Tiempo de respuesta</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE LA EMPRESA (VISIÓN HÍBRIDA) + CLIENTES IDEALES -->
-    <section id="nosotros" class="container section">
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 3rem;">
-        <div style="flex:2">
-          <h2>Somos firma contable, legal y plataforma digital</h2>
-          <p style="font-size: 1.2rem; color: var(--gris-texto);">En CuentaConmigo Pro unificamos la solidez de la asesoría tradicional con la agilidad de la tecnología. Ayudamos a PYMES a liberar su potencial mediante cumplimiento experto y herramientas modernas.</p>
+    <!-- CÓMO TRABAJAMOS (proceso profesional) -->
+    <section id="metodo" class="process-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Cómo trabajamos</h2>
+          <p class="section-subtitle">Metodología profesional para resultados garantizados</p>
         </div>
-        <div style="flex:1; background: var(--gris-claro); border-radius: 60px; padding: 2rem; text-align: center;">
-          <span class="client-badge">⚡ Emprendedores</span>
-          <span class="client-badge">🚀 Startups</span>
-          <span class="client-badge">🏢 PYMES</span>
-          <span class="client-badge">📈 Empresas en crecimiento</span>
+        
+        <div class="process-steps">
+          <div class="step-item">
+            <div class="step-number">01</div>
+            <h3>Diagnóstico empresarial</h3>
+            <p>Analizamos tu situación contable, fiscal y legal actual en detalle.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">02</div>
+            <h3>Plan personalizado</h3>
+            <p>Diseñamos una hoja de ruta adaptada a tu negocio y objetivos.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">03</div>
+            <h3>Implementación</h3>
+            <p>Ejecutamos el plan con reuniones de seguimiento quincenales.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">04</div>
+            <h3>Acompañamiento continuo</h3>
+            <p>Soporte permanente y ajustes según necesidades cambiantes.</p>
+          </div>
         </div>
-      </div>
-
-      <!-- CLIENTES IDEALES (refuerzo) -->
-      <div style="text-align: center; margin: 2rem 0 3rem;">
-        <h3>Confían en nosotros perfiles como el tuyo</h3>
-        <div><span class="client-badge"><i class="fas fa-rocket"></i> Emprendedores</span><span class="client-badge"><i class="fas fa-bolt"></i> Startups</span><span class="client-badge"><i class="fas fa-store"></i> PYMES</span><span class="client-badge"><i class="fas fa-chart-bar"></i> Empresas en crecimiento</span></div>
-      </div>
-
-      <!-- TESTIMONIOS placeholder -->
-      <h2 style="text-align: center;">Lo que dicen nuestros clientes</h2>
-      <div class="testimonials">
-        <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Gracias a CuentaConmigo Pro optimizamos toda nuestra contabilidad y estamos al día con Hacienda."</p><h4>— María G. , CEO de startup</h4></div>
-        <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Su asesoría legal nos ayudó a constituir la empresa en una semana. Muy profesionales."</p><h4>— Carlos R. , fundador</h4></div>
-        <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Tener a la vez lo jurídico y la plataforma digital nos da una ventaja enorme."</p><h4>— Ana L. , gerente PYME</h4></div>
       </div>
     </section>
 
-    <!-- CTA FINAL con formulario -->
-    <section id="contacto" class="container section">
-      <div class="cta-form">
-        <h2 style="color: white; margin-bottom: 0.5rem;">Agenda tu asesoría profesional hoy</h2>
-        <p style="color: rgba(255,255,255,0.8); margin-bottom: 2.5rem;">Te contactamos en menos de 24h para conocer tu negocio.</p>
-        <div class="form-grid">
-          <div class="form-group"><input type="text" placeholder="Nombre completo" id="nombre"></div>
-          <div class="form-group"><input type="text" placeholder="Empresa" id="empresa"></div>
-          <div class="form-group"><input type="email" placeholder="Email corporativo" id="email"></div>
-          <div class="form-group"><input type="tel" placeholder="Teléfono" id="telefono"></div>
-          <div class="form-group" style="grid-column: span 2;"><textarea rows="3" placeholder="¿En qué podemos ayudarte? (opcional)" id="mensaje"></textarea></div>
+    <!-- SOBRE NOSOTROS (visión híbrida) -->
+    <section id="nosotros" class="about-section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2>Somos firma contable, legal y plataforma digital</h2>
+            <p>En <strong>CuentaConmigo Pro</strong> unificamos la solidez de la asesoría tradicional con la agilidad de la tecnología. Ayudamos a PYMES a liberar su potencial mediante cumplimiento experto y herramientas modernas.</p>
+            
+            <div class="about-features">
+              <div><i class="fas fa-check"></i> Contabilidad</div>
+              <div><i class="fas fa-check"></i> Asesoría legal</div>
+              <div><i class="fas fa-check"></i> Tecnología</div>
+            </div>
+            
+            <a href="#contacto" class="btn-primary">Habla con nuestro equipo</a>
+          </div>
+          
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-left"></i>
+              <p>"CuentaConmigo Pro nos ayudó a formalizar nuestra startup en tiempo récord. Su asesoría legal fue clave."</p>
+              <div class="testimonial-author">— Carlos Mendoza, Cofundador TechNica</div>
+            </div>
+            
+            <div class="testimonial-card">
+              <i class="fas fa-quote-left"></i>
+              <p>"Tener contabilidad y legal en un mismo lugar nos ahorra tiempo y nos da tranquilidad."</p>
+              <div class="testimonial-author">— María José, Directora Comercial</div>
+            </div>
+          </div>
         </div>
-        <div style="text-align: right; margin-top: 2rem;">
-          <button class="btn-light" id="enviarBtn"><i class="fas fa-paper-plane"></i> Enviar solicitud</button>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO MEJORADO -->
+    <section id="contacto" class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Agenda tu asesoría profesional hoy</h2>
+            <p>Te contactamos en menos de 24 horas para conocer tu negocio y ofrecerte la mejor solución.</p>
+            
+            <div class="contact-details">
+              <div><i class="fas fa-map-marker-alt"></i> Managua, Nicaragua</div>
+              <div><i class="fas fa-phone"></i> +505 8779 7177</div>
+              <div><i class="fas fa-envelope"></i> contacto@cuentaconmigopro.com</div>
+            </div>
+            
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <input type="text" id="nombre" placeholder="Nombre completo *" required>
+                <span class="error-message"></span>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" id="email" placeholder="Email corporativo *" required>
+                <span class="error-message"></span>
+              </div>
+              
+              <div class="form-group">
+                <input type="text" id="empresa" placeholder="Empresa">
+              </div>
+              
+              <div class="form-group">
+                <input type="tel" id="telefono" placeholder="Teléfono (opcional)">
+              </div>
+              
+              <div class="form-group full-width">
+                <textarea id="mensaje" rows="3" placeholder="¿En qué podemos ayudarte? (opcional)"></textarea>
+              </div>
+              
+              <button type="submit" class="btn-primary btn-large btn-submit">
+                <i class="fas fa-paper-plane"></i> Enviar solicitud
+              </button>
+              
+              <div id="formStatus" class="form-status"></div>
+            </form>
+          </div>
         </div>
-        <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 1.5rem;">* Respondemos en máximo un día hábil.</p>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-content">
-      <div>
-        <span style="font-size: 1.5rem; font-weight: 600;">CuentaConmigo Pro</span><br>
-        <span style="opacity: 0.8;">Firma contable · legal · digital</span>
+  <!-- FOOTER PROFESIONAL -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <img src="/img/logo.png" alt="CuentaConmigo Pro" class="footer-logo">
+          <p>Firma contable + legal con enfoque tecnológico para PYMES en Nicaragua.</p>
+        </div>
+        
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Managua, Nicaragua</li>
+            <li><i class="fas fa-phone"></i> +505 8779 7177</li>
+            <li><i class="fas fa-envelope"></i> contacto@cuentaconmigopro.com</li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Enlaces rápidos</h4>
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
       </div>
-      <div>
-        <i class="fas fa-envelope"></i> contacto@cuentaconmigopro.com<br>
-        <span style="opacity: 0.7;">© 2025 CuentaConmigo Pro. Todos los derechos reservados.</span>
-      </div>
-      <div class="social">
-        <i class="fab fa-linkedin"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-youtube"></i>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 CuentaConmigo Pro. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- script.js integrado -->
-  <script>
-    (function() {
-      // Smooth scroll mejorado para enlaces internos
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
-
-      // Interacción mínima: alerta simulando envío de formulario (placeholders)
-      const btn = document.getElementById('enviarBtn');
-      if (btn) {
-        btn.addEventListener('click', function() {
-          const nombre = document.getElementById('nombre')?.value.trim() || 'sin nombre';
-          const email = document.getElementById('email')?.value.trim() || 'sin email';
-          if (nombre && email) {
-            alert(`Gracias ${nombre}, hemos recibido tu solicitud. Pronto te contactaremos a ${email}.`);
-            // limpiar campos (opcional)
-            document.getElementById('nombre').value = '';
-            document.getElementById('empresa').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('telefono').value = '';
-            document.getElementById('mensaje').value = '';
-          } else {
-            alert('Por favor completa al menos nombre y email para contactarte.');
-          }
-        });
-      }
-
-      // pequeño efecto fade al hacer scroll (para mantener modernidad)
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-up');
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.service-card, .testimonial-card, .step').forEach(el => observer.observe(el));
-    })();
-  </script>
+  <!-- Script principal -->
+  <script src="script.js"></script>
 </body>
 </html>
-
-
